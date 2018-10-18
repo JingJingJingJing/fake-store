@@ -1,0 +1,14 @@
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: bisque;
+}
+.app-card {
+    height: 400px;
+    border-radius: 20px;
+
+    background-color: bisque;
+}
+.long-btn {
+    width: inherit;
+}
