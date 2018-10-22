@@ -1,9 +1,14 @@
-let cards = document.querySelectorAll('.app-card');
-for(card of cards){
-    card.addEventListener('click',fadindIn);
+"use strict";
+let articles = document.querySelectorAll('.app-card');
+for (let article of articles) {
+    article.addEventListener('click', fadingIn);
 }
-
-function fadindIn(event){
-    let card = event.target;
-    card.setAttribute('class', card.getAttribute('class') + " card-fading");
+function fadingIn(event) {
+    let article = event.target;
+    let rect = article.getBoundingClientRect();
+    let recommend = document.querySelector('.recommend');
+    if (recommend) {
+        recommend.setAttribute('class', recommend.getAttribute('class') + " show");
+        recommend.setAttribute('style', 'top:' + rect.top + 'px');
+    }
 }

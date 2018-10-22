@@ -1,4 +1,16 @@
+.recommend {
+    display: none;
+    position: absolute;
+    background-color: white;
+    transition: all 2s;
+}
+
+.show {
+    display: block;
+    border-radius: 20px;
+}
+
 .stiky-picture {
     height: 500px;
-    background-color: bisque;
+    background-color: blue;
 }
