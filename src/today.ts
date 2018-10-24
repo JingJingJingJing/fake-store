@@ -1,19 +1,17 @@
-"use strict";
-let articles = document.querySelectorAll('.app-card');
+let articles: NodeListOf<Element> = document.querySelectorAll('.app-card');
 for (let article of articles) {
     article.addEventListener('click', fadingIn);
 }
-function fadingIn(event) {
-    let article = event.target;
-    let rect = article.getBoundingClientRect();
-    let recommend = document.querySelector('.rc');
-    let rcPircture = document.querySelector('.rc-picture');
-    let rcContent = document.querySelector('.rc-content');
+function fadingIn(event: Event) {
+    let article: EventTarget | null = event.target;
+    let rect: ClientRect = (<Element>article).getBoundingClientRect();
+    let recommend: HTMLElement | null = document.querySelector('.rc');
+    let rcPircture: HTMLElement | null = document.querySelector('.rc-picture');
+    let rcContent: HTMLElement | null = document.querySelector('.rc-content');
     if (recommend && rcPircture && rcContent) {
         recommend.setAttribute('style', 'display: block; top: ' + rect.top + 'px');
         rcContent.innerHTML = "Here is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some contentHere is just some content";
-    }
-    else {
+    }else{
         alert('The app you choosed is not exist.');
     }
 }
