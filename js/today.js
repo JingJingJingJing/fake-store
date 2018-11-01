@@ -1,4 +1,16 @@
 "use strict";
+showCurrentTime();
+function showCurrentTime() {
+    let timeElement = document.querySelector('.date-info>h6');
+    if (timeElement)
+        timeElement.innerHTML = getCurrentTime(new Date());
+    else
+        throw new ReferenceError('date element is not exist.');
+}
+function getCurrentTime(date) {
+    let weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    return date.getMonth() + '月' + date.getDay() + '日 ' + weekdays[date.getDay()];
+}
 let cards = document.querySelectorAll('.app-card');
 for (let card of cards) {
     card.addEventListener('click', fadingIn);
@@ -8,29 +20,39 @@ function fadingIn(event) {
     let rc = document.querySelector('.rc');
     let rcPircture = document.querySelector('.rc-picture');
     let rcContent = document.querySelector('.rc-content');
-    if (card && rc && rcPircture && rcContent) {
+    if (rcContent) {
         getRcArticle(rcContent);
-        expand(rc, card);
+        setTimeout(function () {
+            if (rc && rcPircture) {
+                expand(card, rc, rcPircture);
+            }
+            else {
+                throw new ReferenceError('rc/rcPicture element is not exist.');
+            }
+        }, 200);
     }
     else {
-        alert('The content you choosed is not exist anymore.');
+        throw new ReferenceError('rcContent element is not exist.');
     }
 }
-function expand(rc, card) {
+function expand(card, rc, rcPircture) {
     let rect = card.getBoundingClientRect();
+    rcPircture.innerHTML = card.innerHTML;
     rc.setAttribute('style', 'display: block; top: ' + rect.top + 'px');
     let scrollBack = rect.top > 0 ? -rect.top / 10 : 0;
     rc.animate([
         {
+            display: 'block',
             overflow: 'hidden',
-            width: '343.3px',
-            height: '400px',
+            width: '90%',
+            height: '380px',
             borderRadius: '20px',
             top: rect.top + 'px',
             margin: '0 1rem 0',
             easing: 'ease-out'
         },
         {
+            display: 'block',
             overflow: 'hidden',
             width: '100%',
             height: '100%',
@@ -40,6 +62,7 @@ function expand(rc, card) {
             easing: 'ease-out'
         },
         {
+            display: 'block',
             overflow: 'auto',
             width: '100%',
             height: '100%',
