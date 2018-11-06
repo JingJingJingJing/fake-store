@@ -11,16 +11,11 @@
 
 .rc-close-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 10px;
     width: 25px;
     height: 25px;
-    background-color: grey;
     opacity: 0.8;
-    color: white;
-    font-weight: bolder;
-    text-align: center;
-    line-height: 21px;
 }
 
 .rc-picture {
@@ -42,7 +37,7 @@
 
 .rc-app {
     height: 250px;
-    background-color: rgb(240, 240, 245);
+    background-color: rgb(240, 244, 247);
 }
 
 .rc-share {
