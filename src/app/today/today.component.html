@@ -4,12 +4,12 @@
       <h6>{{currentTime}}</h6>
       <h2>Today</h2>
     </div>
-    <img class="align-self-center rounded-circle user-avatar" />
+    <img class="align-self-center rounded-circle user-avatar" src="src/assets/img/avatar.jpg" />
   </header>
 
   <section class="d-flex flex-column">
-    <article *ngFor="let app of apps" class="mb-4 d-flex app-card" (click)="fadingIn($event)">
-      <div *ngIf="app.imgUrl" class="p-4 app-content" [style.background-image]="'url('+app.imgUrl+')'">
+    <article *ngFor="let app of apps" class="mb-4 d-flex app-card" (click)="fadingIn(app, $event)">
+      <div *ngIf="app.imgUrl" class="p-4 app-content text-white" [style.background-image]="'url('+app.imgUrl+')'">
         <h6>{{app.title}}</h6>
         <h3>{{app.description}}</h3>
       </div>
@@ -18,8 +18,7 @@
         <h3>{{app.description}}</h3>
       </div>
       <div *ngIf="app.videoUrl" class="app-content">
-        <video class="video-top" src={{app.videoUrl}} autoplay>
-        </video>
+        <video class="video-top" src={{app.videoUrl}} controls autoplay muted playsinline></video>
         <div class="p-4">
           <h6>{{app.title}}</h6>
           <h3>{{app.description}}</h3>
@@ -36,4 +35,4 @@
   </footer>
 </main>
 
-<app-recommend></app-recommend>
+<app-recommend [app]="currentApp"></app-recommend>

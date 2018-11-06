@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppInfo } from '../appInfo';
 import { AppService } from '../app.service';
 import 'web-animations-js';
+import { element } from 'protractor';
 
 @Component({
     selector: 'app-today',
@@ -11,6 +12,7 @@ import 'web-animations-js';
 export class TodayComponent implements OnInit {
 
     currentTime: string;
+    currentApp: AppInfo;
     apps: AppInfo[];
 
     constructor(private appService: AppService) { }
@@ -18,6 +20,12 @@ export class TodayComponent implements OnInit {
     ngOnInit() {
         this.currentTime = getCurrentTime(new Date());
         this.getApps();
+        const childs: NodeListOf<Element> = document.querySelectorAll('.app-card *');
+        setTimeout(() => {
+            for (const child of childs) {
+                child.addEventListener('click', (event: Event) => event.stopPropagation());
+            }
+        }, 2000);
     }
 
     getApps() {
@@ -26,8 +34,9 @@ export class TodayComponent implements OnInit {
         });
     }
 
-    fadingIn(event: Event) {
-        const card: EventTarget | null = event.target;
+    fadingIn(app: AppInfo, event: Event) {
+        this.currentApp = app;
+        const card: EventTarget | null = event.currentTarget;
         const rc: HTMLElement | null = document.querySelector('.rc');
         const rcPircture: HTMLElement | null = document.querySelector('.rc-picture');
         const rcContent: HTMLElement | null = document.querySelector('.rc-content');
@@ -54,10 +63,10 @@ function getCurrentTime(date: Date): string {
 
 function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
     const rect: ClientRect = card.getBoundingClientRect();
-    rcPircture.innerHTML = card.innerHTML;
-    console.log(card.innerHTML);
-    rcPircture.setAttribute('style', card.getAttribute('style'));
-    rcPircture.setAttribute('src', card.getAttribute('src'));
+    const content: Element = <Element>card.firstElementChild;
+    rcPircture.innerHTML = content.innerHTML;
+    rcPircture.setAttribute('style', content.getAttribute('style'));
+    rcPircture.setAttribute('class', content.getAttribute('class') + ' rc-picture');
     rc.setAttribute('style', 'display: block; top: ' + rect.top + 'px');
     // expand animation
     const scrollBack: number = rect.top > 0 ? -rect.top / 10 : 0;
@@ -102,6 +111,5 @@ function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
 }
 function getRcArticle(rcContent: HTMLElement): boolean {
     // TODO get article html from server
-    rcContent.innerHTML = 'Here contentHere is just some contentHere is just some contentHere is just some content';
     return true;
 }
