@@ -29,10 +29,13 @@ export class RecommendComponent implements OnInit {
         && rc.scrollTop < rc.scrollHeight - rc.offsetHeight - rcApp.offsetHeight - rcShare.offsetHeight;
 
       if (inMiddle && (nav.style.display === 'none' || !nav.style.display)) {
+        nav.classList.remove('slice-down');
+        nav.classList.add('slice-up');
         nav.style.display = 'flex';
       } else if (!inMiddle && (nav.style.display === 'flex')) {
-        nav.style.bottom = '-50px';
-        nav.addEventListener('transitionend', () => nav.style.display = 'none');
+        nav.classList.remove('slice-up');
+        nav.classList.add('slice-down');
+        nav.addEventListener('animationend', () => nav.style.display = 'none', { once: true });
       } else {
         return;
       }
