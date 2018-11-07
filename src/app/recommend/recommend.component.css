@@ -1,79 +1,106 @@
 .rc {
-    display: none;
-    position: fixed;
-    overflow: hidden;
-    width: 343.3px;
-    height: 400px;
-    margin: 0 1rem 0;
-    border-radius: 20px;
-    background-color: white;
+  display: none;
+  position: fixed;
+  overflow: hidden;
+  width: 343.3px;
+  height: 400px;
+  margin: 0 1rem 0;
+  border-radius: 20px;
+  background-color: white;
 }
 
 .rc-close-btn {
-    position: fixed;
-    top: 18px;
-    right: 10px;
-    width: 25px;
-    height: 25px;
-    opacity: 0.8;
+  position: fixed;
+  top: 18px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.8;
 }
 
 .rc-picture {
-    width: 100%;
-    height: 400px;
-    background-position: left;
+  width: 100%;
+  height: 400px;
+  background-position: left;
 }
 
 .rc-content {
-    color: grey;
-    font-size: 1rem;
+  color: grey;
+  font-size: 1rem;
 }
-.rc-content > p {
-    margin: 1rem;
+
+.rc-content>p {
+  margin: 1rem;
 }
-.rc-content > img {
-    width: 100%;
+
+.rc-content>img {
+  width: 100%;
 }
 
 .rc-app {
-    height: 250px;
-    background-color: rgb(240, 244, 247);
+  height: 250px;
+  background-color: rgb(240, 244, 247);
 }
 
 .rc-share {
-    height: 150px;
+  height: 150px;
 }
+
 .rc-share-content {
-    width: 140px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgb(240, 240, 245);
-    text-align: center;
-    line-height: 49px;
-    color: rgb(23,121,227);
-    font-weight: bolder;
+  width: 140px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(240, 240, 245);
+  text-align: center;
+  line-height: 49px;
+  color: rgb(23, 121, 227);
+  font-weight: bolder;
 }
 
 .app-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 15px;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
 }
+
 .app-name {
-    color: rgb(23,121,227);
-    font: 1.2rem bolder;
+  color: rgb(23, 121, 227);
+  font: 1.2rem bolder;
 }
+
 .app-description {
-    color: grey;
+  color: grey;
 }
+
 .app-get {
-    width: 70px;
-    height: 28px;
-    line-height: 27px;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    font-size: 15px;
-    background-color: rgb(23,121,227);
-    border-radius: 20px;
+  width: 70px;
+  height: 28px;
+  line-height: 27px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-size: 15px;
+  background-color: rgb(23, 121, 227);
+  border-radius: 20px;
+}
+
+.footer-nav {
+  display: none;
+  position: fixed;
+  bottom: -50px;
+  height: 50px;
+  width: 98%;
+  opacity: 0.95;
+  border-radius: 10px;
+  background-color: rgb(240, 244, 2);
+  /* Horizontal center */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slice-up 0.3s ease-out forwards;
+  transition: bottom 0.3s;
+}
+
+@keyframes slice-up {
+    0% { bottom: -50px }
+    100% { bottom: 5px }
 }

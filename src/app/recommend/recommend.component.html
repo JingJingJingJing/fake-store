@@ -13,12 +13,18 @@
     <img src="src/assets/img/rc_cat.png">
     <p>怎么样，是不是特别可爱。既然你们这么喜欢，我就勉强陪你们多玩一会把。
     </p>
+    <img src="src/assets/img/rc_cat_2.gif">
+    <p>人类桌上的不管什么东西都是朕的，都得通通弄到地上检查看看会不会坏。
+    </p>
     <img src="src/assets/img/rc_cat.gif">
+    <p>看在你们这么寂寞的份上，我再勉强待一会吧，就一会，不会再多了。
+    </p>
+    <img src="src/assets/img/rc_cat_run.gif">
     <p>好了各位，你们的喵大爷要撤了，我们下次再见吧。下次记得小鱼干过来。
     </p>
   </section>
 
-  <section class="d-flex justify-content-center align-items-center rc-app">
+  <section *ngIf="app" class="d-flex justify-content-center align-items-center rc-app">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <img class="app-avatar" src="src/assets/img/avatar.jpg">
       <div class="mt-2 app-name">{{app.appName}}</div>
@@ -32,4 +38,8 @@
       分享
     </div>
   </footer>
+
+  <section class="footer-nav">
+
+  </section>
 </article>
