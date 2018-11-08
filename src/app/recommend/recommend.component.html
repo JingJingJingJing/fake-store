@@ -10,10 +10,9 @@
       我是一只小喵咪，有些时候精灵古怪，有些时候调皮可爱。
       重要的事情说三遍！
     </p>
-    <img src="src/assets/img/rc_cat.png">
+    <img src="src/assets/img/rc_cat_2.gif">
     <p>怎么样，是不是特别可爱。既然你们这么喜欢，我就勉强陪你们多玩一会把。
     </p>
-    <img src="src/assets/img/rc_cat_2.gif">
     <p>人类桌上的不管什么东西都是朕的，都得通通弄到地上检查看看会不会坏。
     </p>
     <img src="src/assets/img/rc_cat.gif">
@@ -39,7 +38,14 @@
     </div>
   </footer>
 
-  <section class="footer-nav">
-
+  <section *ngIf="app" class="footer-nav align-items-center justify-content-center">
+    <img class="nav-avatar" src="src/assets/img/avatar.jpg">
+    <div class="nav-description">
+      <div>{{app.appName}}</div>
+      <div>{{app.description}}</div>
+    </div>
+    <div>
+      <div class="nav-get">获取</div>
+    </div>
   </section>
 </article>

@@ -15,10 +15,11 @@ export class RecommendComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.shouldShowNav();
+    this.initialNav();
+    this.initialDrag();
   }
 
-  shouldShowNav() {
+  initialNav() {
     const rc: HTMLElement | null = document.querySelector('.rc');
     rc.addEventListener('scroll', event => {
       const nav: HTMLElement | null = document.querySelector('.footer-nav');
@@ -42,4 +43,33 @@ export class RecommendComponent implements OnInit {
     });
   }
 
+  initialDrag() {
+    const rc: HTMLElement = document.querySelector('.rc');
+    rc.addEventListener('touchstart', event => {
+      const startPointer = event.touches[0];
+      rc.ontouchmove = function (e) {
+        const move: Touch = e.touches[0];
+        scale(startPointer.clientX, startPointer.clientY, move.clientX, move.clientY);
+      };
+    });
+    rc.addEventListener('touchend', event => {
+      rc.ontouchmove = null;
+      scale(0, 0, 0, 0);
+    });
+  }
+
+}
+
+function scale(startX: number, startY: number, x: number, y: number) {
+  const rc: HTMLElement = document.querySelector('.rc');
+  if (rc.scrollTop === 0 && y >= startY) {
+    const scaleRate: string = 'scale(' + (1 - (y - startY) / rc.offsetHeight) + ')';
+    rc.animate({
+      transform: [scaleRate, scaleRate]
+    }, {
+        duration: 100,
+        iterations: 1,
+        fill: 'forwards'
+      }).play();
+  }
 }
