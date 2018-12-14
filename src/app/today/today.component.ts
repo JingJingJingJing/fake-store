@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppInfo } from '../appInfo';
 import { AppService } from '../app.service';
 import 'web-animations-js';
-import { element } from 'protractor';
 
 @Component({
     selector: 'app-today',
@@ -106,8 +105,6 @@ function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
             iterations: 1,
             fill: 'forwards'
         });
-    // disable scroll
-    document.body.style.overflow = 'hidden';
 }
 function getRcArticle(rcContent: HTMLElement): boolean {
     // TODO get article html from server
