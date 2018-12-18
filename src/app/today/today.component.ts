@@ -47,7 +47,7 @@ export class TodayComponent implements OnInit {
                 } else {
                     throw new ReferenceError('rc/rcPicture element is not exist.');
                 }
-            }, 100);
+            }, 0);
         } else {
             throw new ReferenceError('rcContent element is not exist.');
         }
@@ -61,8 +61,11 @@ function getCurrentTime(date: Date): string {
 }
 
 function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
+    const today: HTMLElement = document.querySelector('app-today>main');
     const rect: ClientRect = card.getBoundingClientRect();
     const content: Element = <Element>card.firstElementChild;
+    // frosted-glass effect on background
+    today.classList.add('frosted-glass');
     rcPircture.innerHTML = content.innerHTML;
     rcPircture.setAttribute('style', content.getAttribute('style'));
     rcPircture.setAttribute('class', content.getAttribute('class') + ' rc-picture');
@@ -76,9 +79,7 @@ function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
             width: '90%',
             height: '380px',
             borderRadius: '20px',
-            top: rect.top + 'px',
-            margin: '0 1rem 0',
-            easing: 'ease-out'
+            top: rect.top + 'px'
         } as AnimationKeyFrame,
         {
             display: 'block',
@@ -86,9 +87,7 @@ function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
             width: '100%',
             height: '100%',
             borderRadius: '10px',
-            top: scrollBack + 'px',
-            margin: '0',
-            easing: 'ease-out'
+            top: scrollBack + 'px'
         } as AnimationKeyFrame,
         {
             display: 'block',
@@ -96,14 +95,13 @@ function expand(card: HTMLElement, rc: HTMLElement, rcPircture: HTMLElement) {
             width: '100%',
             height: '100%',
             borderRadius: '0px',
-            top: '0px',
-            margin: '0',
-            easing: 'ease-out'
+            top: '0px'
         } as AnimationKeyFrame
     ], {
             duration: 500,
             iterations: 1,
-            fill: 'forwards'
+            fill: 'forwards',
+            easing: 'linear'
         });
 }
 function getRcArticle(rcContent: HTMLElement): boolean {

@@ -2,6 +2,7 @@ import { AppInfo } from './appInfo';
 
 export const APPS: AppInfo[] = [
     {
+        id: 1,
         displayType: 1,
         title: '游戏人生',
         description: '向前走，一直到尽头',
@@ -9,6 +10,7 @@ export const APPS: AppInfo[] = [
         imgUrl: 'src/assets/img/bk.jpg'
     },
     {
+        id: 2,
         displayType: 1,
         title: '小喵咪',
         description: '我是一只小喵咪',
@@ -16,6 +18,7 @@ export const APPS: AppInfo[] = [
         gifUrl: 'src/assets/img/cat_gif.gif'
     },
     {
+        id: 3,
         displayType: 1,
         title: '小脑斧',
         description: '我是一只小脑斧',

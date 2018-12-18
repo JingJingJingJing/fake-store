@@ -1,4 +1,5 @@
 export class AppInfo {
+    id: number;
     displayType?: number;
     title: string;
     description?: string;

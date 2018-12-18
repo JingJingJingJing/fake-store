@@ -2,13 +2,13 @@
   display: none;
   position: fixed;
   overflow: hidden;
-  width: 343.3px;
-  height: 400px;
-  margin: 0 1rem 0;
-  border-radius: 20px;
   background-color: white;
+  box-shadow: 1px 5px 1.5rem 0px rgb(221,221,221);
   overflow-y: scroll; 
   -webkit-overflow-scrolling: touch; /* enable momentum-based scrolling on iOS */
+  /* Horizontal center */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .rc-close-btn {

@@ -7,8 +7,8 @@
     <img class="align-self-center rounded-circle user-avatar" src="src/assets/img/avatar.jpg" />
   </header>
 
-  <section class="d-flex flex-column">
-    <article *ngFor="let app of apps" class="mb-4 d-flex app-card" (click)="fadingIn(app, $event)">
+  <section class="d-flex flex-wrap justify-content-center">
+    <article *ngFor="let app of apps" class="mb-4 d-flex mx-3" (click)="fadingIn(app, $event)" id="{{app.id}}">
       <div *ngIf="app.imgUrl" class="p-4 app-content text-white" [style.background-image]="'url('+app.imgUrl+')'">
         <h6>{{app.title}}</h6>
         <h3>{{app.description}}</h3>

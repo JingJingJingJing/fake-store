@@ -11,12 +11,8 @@
     background-color: bisque;
 }
 
-.app-card {
-    width: 100%;
-    height: 400px;
-}
 .app-content {
-    width: 100%;
+    width: 336px;
     height: 400px;
     margin: 0 auto;
     align-self: center;
@@ -68,4 +64,9 @@
 .terms:active {
     text-decoration: none;
     color: rgb(180,180,180);
+}
+
+.frosted-glass {
+    filter: blur(5px);
+    opacity: 0.8;
 }
